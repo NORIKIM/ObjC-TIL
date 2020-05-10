@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aictivityIndicatorView;
+@property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;
 
+- (IBAction)download:(id)sender;
+- (IBAction)suspend:(id)sender;
+- (IBAction)resume:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end
 
