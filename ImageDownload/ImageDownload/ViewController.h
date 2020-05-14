@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<NSURLSessionDownloadDelegate> {
+    // 세션 테스크 생성 변수
+    NSURLSessionTask *downloadTask;
+}
+
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aictivityIndicatorView;
 @property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;

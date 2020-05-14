@@ -13,6 +13,7 @@
 @end
 
 @implementation ViewController
+@synthesize imgView, aictivityIndicatorView, downloadProgressView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,14 +22,49 @@
 
 
 - (IBAction)download:(id)sender {
+    imgView.image = nil ;
+    [downloadProgressView setProgress:0.0 animated:NO];
+    [aictivityIndicatorView startAnimating];
+    
+    // 세션 세팅
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    downloadTask = [session downloadTaskWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/ChoiJinYoung/iphonewithswift2/master/sample.jpeg"]]; // 어디에 다운로드 요청 하는지 알려줌
+    [downloadTask resume]; // 다운로드 시작!
 }
 
+// 체택한 딜리게이트의 required 메소드
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
+    NSDate *data = [NSData dataWithContentsOfURL:location]; // 입력해준 URL안의 데이터를 가져옴
+    imgView.image = [UIImage imageWithData:data];
+    [aictivityIndicatorView stopAnimating];
+}
+
+// 프로그레스 뷰에 이미지 다운로드 상황을 보여주기 위한 메소드
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
+    // totalBytesExpectedToWrite : 전체 용량
+    // totalBytesWritten : 다운받은 누적 용량
+    // didWriteData : 다운받고 있는 하나하나의 용량
+    
+    float progress = (float)totalBytesWritten/(float)totalBytesExpectedToWrite;
+    [downloadProgressView setProgress:progress animated:YES];
+}
+
+// 다운로드 정지
 - (IBAction)suspend:(id)sender {
+    [downloadTask suspend];
 }
 
+// 다운로드 시작
 - (IBAction)resume:(id)sender {
+    [downloadTask resume];
 }
 
+// 다운로드 취소
 - (IBAction)cancel:(id)sender {
+    [downloadTask cancel];
+    [downloadProgressView setProgress:0.0 animated:NO];
+    [aictivityIndicatorView stopAnimating];
 }
+
 @end
