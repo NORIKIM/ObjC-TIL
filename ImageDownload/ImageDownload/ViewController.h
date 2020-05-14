@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<NSURLSessionDownloadDelegate> {
+@interface ViewController : UIViewController { // <NSURLSessionDownloadDelegate> block코딩을 위한 삭제
     // 세션 테스크 생성 변수
     NSURLSessionTask *downloadTask;
 }
