@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
+@property (weak, nonatomic) IBOutlet UILabel *playTimeLB;
+@property (weak, nonatomic) IBOutlet UISlider *playSlider;
 
 
 

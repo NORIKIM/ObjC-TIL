@@ -35,6 +35,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playBtn" destination="Peo-43-LjN" id="MlT-D5-Fy7"/>
+                        <outlet property="playSlider" destination="p0o-0G-qTu" id="Uu3-wW-Ufw"/>
+                        <outlet property="playTimeLB" destination="Vbz-8v-Yex" id="1cU-IY-7Wu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
