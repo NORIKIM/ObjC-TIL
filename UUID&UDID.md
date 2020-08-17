@@ -12,6 +12,10 @@ UDID는 고유하게 할당된 40개의 숫자와 문자열이다. 이 값이 �
 
 Deprecated
 
+UUID 기반의 다른 식별자로 대체하여 사용
+
+대표적으로,   identifierForVendor, advertisingIdentifier
+
 ## UUID
 
 ```objective-c
@@ -40,3 +44,6 @@ NSString * uniqueID = [[NSUserDefaults standardUserDefaults] stringForKey: @"uui
 
 
 
+참고 :
+
+https://www.hooni.net/xe/study/2273
