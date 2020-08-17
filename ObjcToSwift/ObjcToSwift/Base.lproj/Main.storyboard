@@ -27,13 +27,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="go to swift"/>
                                 <connections>
-                                    <segue destination="WRX-Ft-e12" kind="show" id="itm-8r-SFq"/>
+                                    <action selector="sendData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nap-dB-aEB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="WRX-Ft-e12" kind="show" identifier="segue" id="74y-Cn-2Ag"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="swift!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMX-kB-NsG">
-                                <rect key="frame" x="175" y="205" width="52" height="21"/>
+                                <rect key="frame" x="175" y="205" width="171" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -59,10 +62,13 @@
                         <viewLayoutGuide key="safeArea" id="OvB-HB-gsa"/>
                     </view>
                     <navigationItem key="navigationItem" id="XYk-ef-Cyb"/>
+                    <connections>
+                        <outlet property="label" destination="rMX-kB-NsG" id="IMN-ZO-f7r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwR-0r-3V8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="119"/>
+            <point key="canvasLocation" x="828.98550724637687" y="118.52678571428571"/>
         </scene>
     </scenes>
 </document>

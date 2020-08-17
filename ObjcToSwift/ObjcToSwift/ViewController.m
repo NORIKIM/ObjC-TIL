@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ObjcToSwift-Swift.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
+
+- (IBAction)sendData:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"segue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segue"]) {
+        SwiftController * vc = (SwiftController *)segue.destinationViewController;
+        vc.data = @"from objc";
+    }
+}
 
 @end
